@@ -91,7 +91,7 @@ h1 .line span{display:block}
 .btn:hover{background:var(--ink)}
 
 /* ряд обложек 1:1:2 */
-.tiles{display:grid;grid-template-columns:1fr 1fr 2fr;gap:clamp(8px,1.2vw,16px);margin-top:clamp(14px,1.8vw,22px);height:clamp(210px,calc(100vh - 400px),430px)}
+.tiles{display:grid;grid-template-columns:1fr 1fr 1.25fr .75fr;gap:clamp(8px,1.2vw,16px);margin-top:clamp(14px,1.8vw,22px);height:clamp(210px,calc(100vh - 400px),430px)}
 .cover{position:relative;display:block;overflow:hidden;border-radius:18px;text-decoration:none;color:inherit;isolation:isolate;container-type:size}
 .go{position:absolute;z-index:3;top:10px;right:10px;width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;transition:background .3s,color .3s}
 .go svg{width:13px;height:13px;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
@@ -118,6 +118,13 @@ h1 .line span{display:block}
 .c3{background:var(--tomato);color:var(--cream)}
 .c3 .nm{position:absolute;left:7cqw;top:8cqh;margin:0;font-family:var(--display);font-weight:900;font-size:min(12.2cqw,22cqh);line-height:.95;letter-spacing:-.045em}
 .c3 .nm span{display:block}
+/* Вне шума: кадр с живого сайта, тёплая темнота */
+.c4{background:#14110e;color:var(--cream)}
+.c4 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%}
+.c4::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,14,0) 45%,rgba(20,17,14,.85))}
+.c4 .nm{position:absolute;z-index:2;left:8cqw;bottom:7cqh;margin:0;font-family:var(--display);font-weight:900;font-size:min(22cqw,16cqh);line-height:.92;letter-spacing:-.045em}
+.c4 .nm span{display:block}
+.c4:hover img{transform:scale(1.05)}
 .c3 .boat{position:absolute;right:7cqw;bottom:9cqh;width:min(40cqw,48cqh * 1.7);height:auto}
 .c3 .yolk{transform-box:fill-box;transform-origin:50% 50%}
 .c3 .yolk{transform-origin:50% 100%}
@@ -136,13 +143,6 @@ section{scroll-margin-top:16px}
 .sol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,28px)}
 .sol p{margin:0;font-size:14px;color:var(--mute);border-left:3px solid var(--accent);padding-left:12px}
 .sol-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-/* превью кейса: скриншот живого сайта */
-.shot{position:relative;display:block;overflow:hidden;border-radius:18px;margin:0 0 clamp(16px,2.2vw,26px);background:#14110e;aspect-ratio:16/9}
-.shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 0}
-.shot .go{top:auto;bottom:10px}
-.shot:hover img{transform:scale(1.03)}
-.shot:hover .go{background:var(--accent);color:#fff}
-.shot:hover .go svg{transform:translate(3px,-3px)}
 .how{display:grid;grid-template-columns:1.2fr 1fr 1.5fr;gap:clamp(12px,2vw,28px);margin-top:clamp(18px,3vw,34px);align-items:start}
 .step{background:var(--soft);border-radius:14px;padding:18px}
 .step:nth-child(2){background:var(--ink);color:#fff;margin-top:28px}
@@ -171,6 +171,7 @@ footer{margin-top:22px;color:var(--mute);font-size:13px}
   .c1{aspect-ratio:5/6}
   .c2{aspect-ratio:1/1}
   .c3{aspect-ratio:4/3}
+  .c4{aspect-ratio:4/5}
   .how{grid-template-columns:1fr}
   .step:nth-child(n){margin-top:0}
   .sol,.sol-3{grid-template-columns:1fr}
@@ -244,6 +245,11 @@ footer{margin-top:22px;color:var(--mute);font-size:13px}
       </svg>
       <span class="go" aria-hidden="true" style="background:var(--cream);color:var(--ink)"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2M4 2h8v8"/></svg></span>
     </a>
+    <a class="cover c4 hero-t" href="https://vne-shuma.netlify.app/" target="_blank" rel="noopener" aria-label="Вне шума, смотреть проект">
+      <img class="mv" src="previews/vne-shuma-tile.webp" width="640" height="985" alt="" decoding="async">
+      <p class="nm"><span>Вне</span><span>шума</span></p>
+      <span class="go" aria-hidden="true" style="background:var(--cream);color:var(--ink)"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2M4 2h8v8"/></svg></span>
+    </a>
   </div>
 
   <section id="projects" aria-labelledby="projects-h">
@@ -301,10 +307,6 @@ footer{margin-top:22px;color:var(--mute);font-size:13px}
         <a class="btn" href="https://vne-shuma.netlify.app/" target="_blank" rel="noopener">Открыть сайт</a>
       </div>
       <div>
-        <a class="shot" href="https://vne-shuma.netlify.app/" target="_blank" rel="noopener" aria-label="ВНЕ ШУМА, открыть сайт">
-          <img class="mv" src="previews/vne-shuma.webp" width="1440" height="810" loading="lazy" decoding="async" alt="Первый экран сайта «Вне шума»: мастер Игорь за чайным столом и заголовок «Чайные церемонии в Батуми»">
-          <span class="go" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2M4 2h8v8"/></svg></span>
-        </a>
         <p class="task">Нужно было передать тишину чайной церемонии и мягко подвести человека к записи.</p>
         <div class="sol sol-3">
           <p>Посуду на чайном столе можно рассмотреть по номерам: название по-китайски и короткое пояснение.</p>
