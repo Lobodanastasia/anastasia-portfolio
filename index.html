@@ -118,13 +118,13 @@ h1 .line span{display:block}
 .c3{background:var(--tomato);color:var(--cream)}
 .c3 .nm{position:absolute;left:7cqw;top:8cqh;margin:0;font-family:var(--display);font-weight:900;font-size:min(12.2cqw,22cqh);line-height:.95;letter-spacing:-.045em}
 .c3 .nm span{display:block}
-/* Вне шума: кадр с живого сайта, тёплая темнота */
-.c4{background:#14110e;color:var(--cream)}
-.c4 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%}
-.c4::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,14,0) 45%,rgba(20,17,14,.85))}
-.c4 .nm{position:absolute;z-index:2;left:8cqw;bottom:7cqh;margin:0;font-family:var(--display);font-weight:900;font-size:min(22cqw,16cqh);line-height:.92;letter-spacing:-.045em}
+/* Вне шума: тёмный чай, кремовая пиала и медный пар */
+.c4{background:#2b1d16;color:#ece3d0}
+.c4 .bowl{position:absolute;left:50%;top:11cqh;width:min(86cqw,46cqh);height:auto;transform:translateX(-50%)}
+.c4 .steam{transform-box:fill-box;transform-origin:50% 100%}
+.c4:hover .steam{transform:translateY(-12%) scaleY(1.08)}
+.c4 .nm{position:absolute;left:8cqw;bottom:7cqh;margin:0;font-family:var(--display);font-weight:900;font-size:min(22cqw,16cqh);line-height:.92;letter-spacing:-.045em}
 .c4 .nm span{display:block}
-.c4:hover img{transform:scale(1.05)}
 .c3 .boat{position:absolute;right:7cqw;bottom:9cqh;width:min(40cqw,48cqh * 1.7);height:auto}
 .c3 .yolk{transform-box:fill-box;transform-origin:50% 50%}
 .c3 .yolk{transform-origin:50% 100%}
@@ -246,9 +246,18 @@ footer{margin-top:22px;color:var(--mute);font-size:13px}
       <span class="go" aria-hidden="true" style="background:var(--cream);color:var(--ink)"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2M4 2h8v8"/></svg></span>
     </a>
     <a class="cover c4 hero-t" href="https://vne-shuma.netlify.app/" target="_blank" rel="noopener" aria-label="Вне шума, смотреть проект">
-      <img class="mv" src="previews/vne-shuma-tile.webp" width="640" height="985" alt="" decoding="async">
+      <svg class="bowl" viewBox="0 0 120 130" aria-hidden="true">
+        <g class="steam mv" fill="none" stroke="#c46a45" stroke-width="2.4" stroke-linecap="round">
+          <path d="M46 62 C38 52 54 44 46 32 C40 24 48 16 46 8"/>
+          <path d="M60 60 C52 48 68 40 60 28 C54 20 62 12 60 4" stroke-opacity=".6"/>
+          <path d="M74 62 C66 52 82 44 74 32 C68 24 76 16 74 8"/>
+        </g>
+        <path d="M14 76 H106 C104 102 86 118 60 118 C34 118 16 102 14 76Z" fill="#ece3d0"/>
+        <ellipse cx="60" cy="76" rx="46" ry="7" fill="#c46a45"/>
+        <path d="M46 118 H74 V124 H46Z" fill="#ece3d0"/>
+      </svg>
       <p class="nm"><span>Вне</span><span>шума</span></p>
-      <span class="go" aria-hidden="true" style="background:var(--cream);color:var(--ink)"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2M4 2h8v8"/></svg></span>
+      <span class="go" aria-hidden="true" style="background:#ece3d0;color:var(--ink)"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2M4 2h8v8"/></svg></span>
     </a>
   </div>
 
