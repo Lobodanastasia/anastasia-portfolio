@@ -87,6 +87,11 @@ h1 .line{display:block;overflow:hidden;padding-bottom:.05em}
 h1 .line span{display:block}
 .aside{display:flex;flex-direction:column;gap:12px;padding-bottom:.4em}
 .aside p{margin:0;color:var(--mute);font-size:clamp(13px,1.15vw,15px);line-height:1.45;max-width:30ch}
+/* портрет на первом экране */
+.hero{grid-template-columns:auto clamp(96px,12vw,172px) minmax(0,1fr)}
+.me{margin:0;align-self:end;aspect-ratio:4/5;border-radius:16px;overflow:hidden;background:var(--ink);transform:rotate(-3deg);box-shadow:0 18px 30px -14px rgba(90,20,0,.45);margin-bottom:.4em}
+.me img{display:block;width:100%;height:100%;object-fit:cover}
+.me:hover{transform:rotate(0deg) scale(1.03)}
 .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:13px;border-radius:999px;padding:10px 20px;align-self:flex-start;transition:background .2s}
 .btn:hover{background:var(--ink)}
 
@@ -163,7 +168,9 @@ footer{margin-top:22px;color:var(--mute);font-size:13px}
 @media (max-width:700px){
   .nav{grid-template-columns:1fr auto}
   .nav ul{display:none}
-  .hero{grid-template-columns:1fr;align-items:start}
+  .hero{grid-template-columns:min(38vw,150px) minmax(0,1fr);align-items:center;row-gap:18px}
+  .hero h1{grid-column:1/-1}
+  .me{margin-bottom:0}
   h1{font-size:clamp(2rem,11.2vw,4.2rem)}
   .aside{padding-bottom:0}
   .aside p{max-width:36ch}
@@ -208,6 +215,7 @@ footer{margin-top:22px;color:var(--mute);font-size:13px}
 
   <header class="hero" id="top">
     <h1 aria-label="Веб-дизайнер"><span class="line"><span>Веб-</span></span><span class="line"><span>дизайнер</span></span></h1>
+    <figure class="me mv"><img src="img/anastasia-400.webp" srcset="img/anastasia-400.webp 400w, img/anastasia-640.webp 640w" sizes="(max-width:700px) 40vw, 180px" width="400" height="500" alt="Анастасия Лобода — портрет: светло-русые волосы, лёгкая улыбка, белый топ" decoding="async"></figure>
     <div class="aside">
       <p class="hero-in">Проектирую и собираю сайты — от первого эскиза до запуска.</p>
       <a class="btn hero-in" href="#projects">Смотреть работы</a>
