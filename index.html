@@ -96,7 +96,8 @@ h1 .line span{display:block}
 .btn:hover{background:var(--ink)}
 
 /* ряд обложек 1:1:2 */
-.tiles{display:grid;grid-template-columns:1fr 1fr 1.25fr .75fr;gap:clamp(8px,1.2vw,16px);margin-top:clamp(14px,1.8vw,22px);height:clamp(210px,calc(100vh - 400px),430px)}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(210px,calc(100vh - 400px),430px);gap:clamp(8px,1.2vw,16px);margin-top:clamp(14px,1.8vw,22px)}
+.c3,.c5{grid-column:span 2}
 .cover{position:relative;display:block;overflow:hidden;border-radius:18px;text-decoration:none;color:inherit;isolation:isolate;container-type:size}
 .go{position:absolute;z-index:3;top:10px;right:10px;width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;transition:background .3s,color .3s}
 .go svg{width:13px;height:13px;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
@@ -130,6 +131,21 @@ h1 .line span{display:block}
 .c4:hover .steam{transform:translateY(-12%) scaleY(1.08)}
 .c4 .nm{position:absolute;left:8cqw;bottom:7cqh;margin:0;font-family:var(--display);font-weight:900;font-size:min(22cqw,16cqh);line-height:.92;letter-spacing:-.045em}
 .c4 .nm span{display:block}
+/* Бархат: винный фон, кремовый торт с малиновой глазурью */
+.c5{background:#5e0f1f;color:#fbf6ef}
+.c5 .cake{position:absolute;right:7cqw;top:9cqh;width:min(46cqw,72cqh);height:auto}
+.c5 .berry{transform-box:fill-box;transform-origin:50% 100%}
+.c5:hover .berry{transform:translateY(-22%) rotate(-12deg)}
+.c5 .nm{position:absolute;left:7cqw;bottom:8cqh;margin:0;font-family:var(--display);font-weight:900;font-size:min(12.2cqw,22cqh);line-height:.95;letter-spacing:-.045em}
+.c5 .nm small{display:block;margin-top:2cqh;font-family:var(--body);font-size:max(11px,2.1cqw);font-weight:500;letter-spacing:0;color:#e9b7c0}
+/* Dr Stella: пудровый фон, контур губ шоколадом и золотом */
+.c6{background:#e7cfd1;color:#322824}
+.c6 .lips{position:absolute;left:50%;top:24cqh;width:min(80cqw,60cqh);height:auto;transform:translateX(-50%)}
+.c6 .lp{transform-box:fill-box;transform-origin:50% 50%}
+.c6:hover .lp{transform:scale(1.08)}
+.c6 .nm{position:absolute;left:8cqw;bottom:7cqh;margin:0}
+.c6 .nm small{display:block;font-size:max(11px,4.2cqw);font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#8a6a4a}
+.c6 .nm b{display:block;font-family:var(--display);font-weight:900;font-size:min(19cqw,16cqh);letter-spacing:-.045em;line-height:.95}
 .c3 .boat{position:absolute;right:7cqw;bottom:9cqh;width:min(40cqw,48cqh * 1.7);height:auto}
 .c3 .yolk{transform-box:fill-box;transform-origin:50% 50%}
 .c3 .yolk{transform-origin:50% 100%}
@@ -174,11 +190,14 @@ footer{margin-top:22px;color:var(--mute);font-size:13px}
   h1{font-size:clamp(2rem,11.2vw,4.2rem)}
   .aside{padding-bottom:0}
   .aside p{max-width:36ch}
-  .tiles{grid-template-columns:1fr;height:auto}
+  .tiles{grid-template-columns:1fr;grid-auto-rows:auto}
+  .c3,.c5{grid-column:auto}
   .c1{aspect-ratio:5/6}
   .c2{aspect-ratio:1/1}
   .c3{aspect-ratio:4/3}
   .c4{aspect-ratio:4/5}
+  .c5{aspect-ratio:4/3}
+  .c6{aspect-ratio:1/1}
   .how{grid-template-columns:1fr}
   .step:nth-child(n){margin-top:0}
   .sol,.sol-3{grid-template-columns:1fr}
@@ -267,6 +286,32 @@ footer{margin-top:22px;color:var(--mute);font-size:13px}
       <p class="nm"><span>Вне</span><span>шума</span></p>
       <span class="go" aria-hidden="true" style="background:#ece3d0;color:var(--ink)"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2M4 2h8v8"/></svg></span>
     </a>
+    <a class="cover c5 hero-t" href="https://lobodanastasia.github.io/konditerskaya-concept/" target="_blank" rel="noopener" aria-label="Бархат, смотреть проект">
+      <svg class="cake" viewBox="0 0 200 170" aria-hidden="true">
+        <ellipse cx="100" cy="158" rx="84" ry="7" fill="#fbf6ef" fill-opacity=".22"/>
+        <path d="M34 80 H166 V146 C166 152 160 156 152 156 H48 C40 156 34 152 34 146Z" fill="#fbf6ef"/>
+        <rect x="34" y="104" width="132" height="9" fill="#e9b7c0"/>
+        <rect x="34" y="128" width="132" height="9" fill="#e9b7c0"/>
+        <path d="M30 70 C30 62 38 58 48 58 H152 C162 58 170 62 170 70 V84 C170 90 162 90 160 84 C158 98 148 98 146 86 C142 92 134 92 132 84 C128 104 116 104 114 86 C110 92 100 92 98 84 C94 96 82 96 80 86 C76 92 68 92 66 84 C62 100 50 100 48 86 C44 92 36 92 34 84 C32 82 30 78 30 74Z" fill="#d94a63"/>
+        <g class="berry mv">
+          <path d="M100 52 C88 52 84 40 88 32 C92 24 108 24 112 32 C116 40 112 52 100 52Z" fill="#e9b7c0"/>
+          <path d="M100 26 C96 18 88 16 82 18 C88 22 94 26 100 26 C106 26 112 22 118 18 C112 16 104 18 100 26Z" fill="#9db07a"/>
+        </g>
+      </svg>
+      <p class="nm">Бархат<small>десерты на заказ</small></p>
+      <span class="go" aria-hidden="true" style="background:#fbf6ef;color:var(--ink)"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2M4 2h8v8"/></svg></span>
+    </a>
+    <a class="cover c6 hero-t" href="https://dr-stella-rostov.github.io/" target="_blank" rel="noopener" aria-label="Dr Stella, смотреть проект">
+      <svg class="lips" viewBox="0 0 200 110" aria-hidden="true">
+        <g class="lp mv" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="#322824" stroke-width="2.6" d="M14 56 C40 34 66 22 86 30 C93 33 97 38 100 38 C103 38 107 33 114 30 C134 22 160 34 186 56 C158 96 42 96 14 56Z"/>
+          <path stroke="#322824" stroke-width="1.8" d="M22 56 C60 64 140 64 178 56"/>
+          <path stroke="#b69a70" stroke-width="1.4" d="M34 52 C56 40 74 34 88 39 M112 39 C126 34 144 40 166 52 M44 70 C76 84 124 84 156 70"/>
+        </g>
+      </svg>
+      <p class="nm"><small>Dr</small><b>Stella</b></p>
+      <span class="go" aria-hidden="true"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12 12 2M4 2h8v8"/></svg></span>
+    </a>
   </div>
 
   <section id="projects" aria-labelledby="projects-h">
@@ -329,6 +374,38 @@ footer{margin-top:22px;color:var(--mute);font-size:13px}
           <p>Посуду на чайном столе можно рассмотреть по номерам: название по-китайски и короткое пояснение.</p>
           <p>«Чайный питомец» показан до и после пролива, так ритуал виден ещё до встречи.</p>
           <p>Форматы встречи описаны коротко, а кнопка записи повторяется по ходу страницы.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="work" id="work-barhat">
+      <div class="head">
+        <h3>Бархат</h3>
+        <p class="kind">Концепт сайта частного кондитера</p>
+        <a class="btn" href="https://lobodanastasia.github.io/konditerskaya-concept/" target="_blank" rel="noopener">Открыть сайт</a>
+      </div>
+      <div>
+        <p class="task">Нужно было, чтобы человек сам собрал десерт и сразу понял примерную цену, не переписываясь часами.</p>
+        <div class="sol sol-3">
+          <p>Конструктор ведёт по семи шагам, от повода до даты, и сразу показывает ориентировочную цену.</p>
+          <p>У каждой начинки есть вкус, состав и аллергены, их видно ещё до заказа.</p>
+          <p>Галерею работ можно отфильтровать по поводу: свадьбы, дни рождения, детские праздники.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="work" id="work-stella">
+      <div class="head">
+        <h3>Dr Stella</h3>
+        <p class="kind">Лендинг косметолога в Ростове-на-Дону</p>
+        <a class="btn" href="https://dr-stella-rostov.github.io/" target="_blank" rel="noopener">Открыть сайт</a>
+      </div>
+      <div>
+        <p class="task">Нужно было вызвать доверие к специалисту и спокойно довести человека до записи на консультацию.</p>
+        <div class="sol sol-3">
+          <p>Результат показан ползунком «до и после», его можно сравнить на одном снимке.</p>
+          <p>Кнопки записи сразу открывают WhatsApp с готовым сообщением.</p>
+          <p>Частые вопросы собраны в раскрывающийся список, страница остаётся короткой.</p>
         </div>
       </div>
     </article>
@@ -411,7 +488,7 @@ footer{margin-top:22px;color:var(--mute);font-size:13px}
       start: 'top 92%', once: true,
       onEnter: function (els) { gsap.to(els, { autoAlpha: 1, y: 0, duration: 0.7, ease: 'power2.out', stagger: 0.12, overwrite: true }); }
     });
-    // кейсы чередуются: FORME слева, NOT / ordinary справа, Saojaxo Gemo слева, ВНЕ ШУМА справа
+    // кейсы чередуются: нечётные (FORME, Saojaxo Gemo, Бархат) слева, чётные (NOT / ordinary, ВНЕ ШУМА, Dr Stella) справа
     var dist = window.innerWidth <= 700 ? 24 : 70;
     gsap.utils.toArray('.work').forEach(function (w, i) {
       var dir = (i % 2 === 0) ? -1 : 1;
